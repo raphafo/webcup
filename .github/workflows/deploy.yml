@@ -27,5 +27,5 @@ jobs:
     - name: Déployer sur le serveur distant
       run: |
         ssh -i ~/.ssh/id_rsa -p ${{secrets.SSH_PORT}} teamibfa@102.222.106.68 "rm -rf ~/public_html/*"
-        scp -i ~/.ssh/id_rsa -P ${{secrets.SSH_PORT}} -r ./build/ teamibfa@102.222.106.68:~/public_html/
+        scp -i ~/.ssh/id_rsa -P ${{secrets.SSH_PORT}} -r ./build/* teamibfa@102.222.106.68:~/public_html/
 
