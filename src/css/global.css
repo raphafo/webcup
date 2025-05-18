@@ -1,0 +1,126 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Vos styles personnalisés ici */
+@font-face {
+  font-family: 'Impact';
+  src: local('Impact'), url('https://fonts.cdnfonts.com/css/impact') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Comic_Sans_MS';
+  src: local('Comic Sans MS'), url('https://fonts.cdnfonts.com/css/comic-sans') format('truetype');
+  font-display: swap;
+}
+.gif-container {
+  transition: all 0.3s ease;
+}
+.gif-container img {
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* 2. Animations clés */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-8px); }
+  75% { transform: translateX(8px); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes pulse-fast {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* 3. Classes utilitaires pour les thèmes */
+.animate-shake {
+  animation: shake 0.5s infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-fast {
+  animation: pulse-fast 0.8s infinite;
+}
+
+/* 4. Styles spécifiques aux émotions */
+.font-impact {
+  font-family: 'Impact', sans-serif;
+  letter-spacing: -1px;
+}
+
+.font-comic {
+  font-family: 'Comic_Sans_MS', cursive;
+}
+
+.font-times {
+  font-family: 'Times New Roman', serif;
+}
+
+/* 5. Effets de texture (optionnel) */
+.texture-cracks {
+  background-image: url('https://i.imgur.com/XJxqTFZ.png');
+  background-repeat: repeat;
+  background-blend-mode: overlay;
+}
+
+/* 6. Reset et styles de base */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* 7. Curseurs personnalisés */
+.cursor-anger {
+  cursor: url('https://i.imgur.com/ZY7C7Q9.png'), auto;
+}
+
+.cursor-joy {
+  cursor: url('https://i.imgur.com/6Fq7h9T.png'), auto;
+}
+
+/* 8. Transitions globales */
+* {
+  transition: background-color 0.3s ease, color 0.2s ease;
+}
+
+/* 9. Styles pour le canvas de dessin */
+canvas {
+  touch-action: none; /* Important pour le dessin sur mobile */
+  background-color: transparent !important;
+}
+/* Effet "larmes" pour la tristesse */
+@keyframes tear-drop {
+  to { transform: translateY(100vh) rotate(15deg); }
+}
+
+.tear {
+  position: absolute;
+  background: rgba(150, 200, 255, 0.6);
+  border-radius: 50% 5% 50% 50%;
+  animation: tear-drop 2s linear forwards;
+}
+
+/* Ombres portées dynamiques */
+.dynamic-shadow {
+  filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.3));
+}
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+canvas {
+  touch-action: none;
+}

@@ -1,0 +1,30 @@
+name: Déploiement SSH
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout du code
+      uses: actions/checkout@v3
+
+    - name: Configurer SSH
+      run: |
+        mkdir -p ~/.ssh
+        echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+        ssh-keyscan -p ${{secrets.SSH_PORT}} -H 102.222.106.68 >> ~/.ssh/known_hosts
+    - name: Build du projet
+      run: |
+        npm install
+        npm run build
+      
+    - name: Déployer sur le serveur distant
+      run: |
+        ssh -i ~/.ssh/id_rsa -p ${{secrets.SSH_PORT}} teamibfa@102.222.106.68 "rm -rf ~/public_html/*"
+        scp -i ~/.ssh/id_rsa -P ${{secrets.SSH_PORT}} -r ./build/ teamibfa@102.222.106.68:~/public_html/
+
