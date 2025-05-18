@@ -18,8 +18,10 @@ jobs:
         echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
         ssh-keyscan -p ${{secrets.SSH_PORT}} -H 102.222.106.68 >> ~/.ssh/known_hosts
+
     - name: Build du projet
       run: |
+        pwd
         npm install
         npm run build
       
