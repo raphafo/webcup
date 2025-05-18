@@ -4,6 +4,7 @@ import EmojiPicker from 'emoji-picker-react';
 import { motion } from 'framer-motion';
 import './css/global.css';
 
+/* eslint-disable no-unused-vars */
 const CartePersonnalisee = () => {
   // États
   const [image, setImage] = useState(null);
