@@ -22,6 +22,7 @@ jobs:
     - name: Build du projet
       run: |
         pwd
+        ls -la
         npm install
         npm run build
       
