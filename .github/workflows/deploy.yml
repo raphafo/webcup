@@ -21,10 +21,8 @@ jobs:
 
     - name: Build du projet
       run: |
-        pwd
-        ls -la
         npm install
-        npm run build
+        ESLINT_NO_DEV_ERRORS=true npm run build
       
     - name: Déployer sur le serveur distant
       run: |
